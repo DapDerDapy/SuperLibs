@@ -44,7 +44,6 @@ export function MadLib() {
         }
     }, [step, words]); 
 
-
     const handleGenreChange = (event) => {
         setGenre(event.target.value);
         setStep(2);
@@ -61,7 +60,6 @@ export function MadLib() {
         
         setWords((prevWords) => {
             const key = wordOrder[currentIndex];
-
             const updatedWords = {
                 ...prevWords,
                 [key]: prevWords[key] ? [...prevWords[key], word] : [word]
@@ -76,40 +74,44 @@ export function MadLib() {
         if (currentIndex + 1 < wordOrder.length) {
             setCurrentIndex((prevIndex) => prevIndex + 1);
         } else {
-            console.log("✅ All words collected, attempting to generate story...");
-            setStep(3);
-            generateStory();
+            console.log("✅ All words collected, ensuring last word is stored...");
+
+            // **Delay the state update to ensure the last word is stored**
+            setTimeout(() => {
+                console.log("🚀 Final words object before sending:", words);
+                setStep(3);
+            }, 100);  // Short delay to allow state to update
         }
     };
 
 
 
 
+const generateStory = async (finalWords) => {
+    console.log("🚀 Preparing to send request to backend...");
+    console.log("📦 Sending:", { genre, wordOrder, words: finalWords });
 
-    const generateStory = async () => {
-        console.log("🚀 Sending to Backend:", { genre, wordOrder, words }); // Debugging log
+    try {
+        const response = await fetch('http://localhost:5000/generate-madlib', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ genre, wordOrder, words: finalWords }) 
+        });
 
-        try {
-            const response = await fetch('http://localhost:5000/generate-madlib', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ genre, wordOrder, words }) 
-            });
+        console.log("📤 Request Sent! Waiting for response...");
 
-            const data = await response.json();
-            console.log("🎭 Backend Response:", data);
+        const data = await response.json();
+        console.log("🎭 Backend Response:", data);
 
-            if (!response.ok) throw new Error(data.error || "Failed to fetch AI response");
+        if (!response.ok) throw new Error(data.error || "Failed to fetch AI response");
 
-            setStory(data.story || "Uh-Oh! AI response failed.");
-        } catch (error) {
-            console.error("Fetch Error:", error);
-            setStory("Oops! Something went wrong.");
-        }
-    };
+        setStory(data.story || "Uh-Oh! AI response failed.");
+    } catch (error) {
+        console.error("Fetch Error:", error);
+        setStory("Oops! Something went wrong.");
+    }
+};
 
-
-    
 
     return (
         <main className="madlib-container">

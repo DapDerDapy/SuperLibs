@@ -76,18 +76,26 @@ app.post('/generate-madlib', async (req, res) => {
         console.log("📜 Generated Template:", storyTemplate);
 
         // Step 2: Replace placeholders with actual user-provided words
-        wordOrder.forEach((wordType) => {
-            const regex = new RegExp(`\\{${wordType}\\}`, "i"); // Case insensitive
-            let replacements = words[wordType];
+        // Replace placeholders with actual user-provided words
+        let usedWords = {};  // Track used words to avoid repetition
 
-            if (Array.isArray(replacements)) {
-                // Pick a random word from the collected ones
-                let replacement = replacements[Math.floor(Math.random() * replacements.length)];
-                storyTemplate = storyTemplate.replace(regex, `**${replacement}**`);
+        wordOrder.forEach((wordType) => {
+            if (words[wordType] && words[wordType].length > 0) {
+                let replacement = words[wordType].shift();  // Take the first available word
+                usedWords[wordType] = replacement;
+
+                if (replacement) {
+                    const regex = new RegExp(`{${wordType}}`, "g");
+                    if (storyTemplate.includes(`{${wordType}}`)) {
+                        storyTemplate = storyTemplate.replace(regex, `**${replacement}**`);
+                    } else {
+                        console.warn(`⚠️ Placeholder {${wordType}} was missing in template!`);
+                    }
+                }
+            } else {
+                console.warn(`⚠️ No replacement found for {${wordType}}`);
             }
         });
-
-
 
 
 
