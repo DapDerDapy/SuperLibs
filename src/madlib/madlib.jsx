@@ -52,16 +52,23 @@ export function MadLib() {
 
     const handleWordSubmit = (event) => {
         event.preventDefault();
+        console.log("📩 handleWordSubmit was triggered!");
+
         const word = event.target.elements.word.value.trim();
         if (word === '') return;
 
+        console.log(`🔤 Entered word: ${word}`);
+        
         setWords((prevWords) => {
             const key = wordOrder[currentIndex];
 
-            return {
+            const updatedWords = {
                 ...prevWords,
-                [key]: prevWords[key] ? [...prevWords[key], word] : [word]  // Store multiple words
+                [key]: prevWords[key] ? [...prevWords[key], word] : [word]
             };
+
+            console.log("📝 Updated Words Object:", updatedWords);
+            return updatedWords;
         });
 
         event.target.reset();
@@ -69,10 +76,12 @@ export function MadLib() {
         if (currentIndex + 1 < wordOrder.length) {
             setCurrentIndex((prevIndex) => prevIndex + 1);
         } else {
+            console.log("✅ All words collected, attempting to generate story...");
             setStep(3);
-            console.log("✅ All words collected, generating story...");
+            generateStory();
         }
     };
+
 
 
 
