@@ -44,6 +44,7 @@ export function MadLib() {
         }
     }, [step, words]); 
 
+
     const handleGenreChange = (event) => {
         setGenre(event.target.value);
         setStep(2);
@@ -57,33 +58,34 @@ export function MadLib() {
         if (word === '') return;
 
         console.log(`🔤 Entered word: ${word}`);
-        
+
         setWords((prevWords) => {
             const key = wordOrder[currentIndex];
+
             const updatedWords = {
                 ...prevWords,
                 [key]: prevWords[key] ? [...prevWords[key], word] : [word]
             };
 
             console.log("📝 Updated Words Object:", updatedWords);
+
+            // Check if this is the last word
+            if (currentIndex + 1 >= wordOrder.length) {
+                console.log("✅ All words collected, generating story...");
+                generateStory(updatedWords); // Ensure final words are sent to backend
+                setStep(3);
+            }
+
             return updatedWords;
         });
 
         event.target.reset();
 
+        // Move to next word if not finished
         if (currentIndex + 1 < wordOrder.length) {
             setCurrentIndex((prevIndex) => prevIndex + 1);
-        } else {
-            console.log("✅ All words collected, ensuring last word is stored...");
-
-            // **Delay the state update to ensure the last word is stored**
-            setTimeout(() => {
-                console.log("🚀 Final words object before sending:", words);
-                setStep(3);
-            }, 100);  // Short delay to allow state to update
         }
     };
-
 
 
 

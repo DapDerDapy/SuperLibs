@@ -1,0 +1,175 @@
+.scripts-section {
+  min-height: 100vh;
+  background: #f1f1f1;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.scripts-section h2 {
+  font-size: 2.5rem;
+  color: #222;
+  margin-bottom: 1.5rem;
+}
+
+.pdfs {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.pdfs > div {
+  width: 100%;
+  max-width: 800px;
+  height: 600px;
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pdfs h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.75rem;
+  font-style: italic;
+}
+
+.scripts-section {
+  scroll-behavior: smooth;
+}
+
+
+.video-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.video-card {
+  width: 280px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.video-info {
+  padding: 1rem;
+}
+
+.video-info h4 {
+  margin: 0.5rem 0;
+  font-size: 1.3rem;
+}
+
+.watch-button {
+  display: inline-block;
+  margin-top: 0.75rem;
+  background: #007bff;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.watch-button:hover {
+  background: #0056b3;
+}
+
+.coming-soon {
+  font-style: italic;
+  color: #999;
+  margin-top: 0.5rem;
+}
+
+.credit-role{
+font-size: 2.0rem;
+  font-weight: normal;
+  color: #666;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+.featured-music-video {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.featured-music-video h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.featured-music-video .description {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: #444;
+}
+
+.video-embed-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+.video-thumbnail {
+  position: relative;
+  display: inline-block;
+  max-width: 800px;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #eee;
+  padding: 1rem;
+  margin: 2rem 0;
+}
+
+.video-thumbnail img {
+  width: 100%;
+  display: block;
+}
+
+.featured-watch-button {
+  display: block;
+  width: 100%;
+  background: #ff0000;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.2s ease;
+  border-radius: 0 0 12px 12px; /* rounded corners only on bottom */
+}
+
+
+.featured-watch-button:hover {
+  background: #cc0000;
+}

@@ -1,0 +1,32 @@
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom right, #1a1a1a, #2c3e50);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}
+
+
+.hero-text {
+  z-index: 2;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 1rem;
+  border-radius: 12px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: rgb(255, 255, 255);
+}
+
+.hero-text p {
+  font-size: 1.5rem;
+  margin: 0;
+  color: rgb(255, 255, 255);
+}
