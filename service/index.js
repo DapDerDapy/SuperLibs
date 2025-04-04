@@ -15,7 +15,7 @@ app.use(express.json());
 // OpenAI API Endpoint
 const OPENAI_API_URL = `https://api.openai.com/v1/chat/completions`;
 
-app.post('/generate-madlib', async (req, res) => {
+app.post('/api/generate-madlib', async (req, res) => {
     try {
         const { genre, wordOrder, words } = req.body;
 

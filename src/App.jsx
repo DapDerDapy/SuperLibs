@@ -11,8 +11,10 @@ import { Contact } from './contact/contact';
 import HeroSection from './portfolio/HeroSection';
 import AboutMe from './portfolio/AboutMe';
 import ScriptsAndVideos from './portfolio/ScriptsAndVideos';
-// import MusicGallery from './portfolio/MusicGallery';
-// import AIIntroGame from './portfolio/AIIntroGame';
+import ResumeShowcase from './portfolio/ResumeShowcase';
+import AIIntroGame from './portfolio/AIIntroGame';
+
+
 
 function App() {
   return (
@@ -24,8 +26,12 @@ function App() {
             <HeroSection />
             <AboutMe />
             <ScriptsAndVideos />
-            {/* <MusicGallery /> */}
-            {/* <AIIntroGame /> */}
+            <ResumeShowcase />
+            <AIIntroGame />
+            <MadLib />
+
+
+    
           </>
         } />
         

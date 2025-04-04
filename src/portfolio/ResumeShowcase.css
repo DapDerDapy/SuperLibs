@@ -1,0 +1,72 @@
+.resume-section {
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 2rem;
+  text-align: center;
+  background: #f9f9f9;
+}
+
+.animated-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 30% 20%, #c9464655, transparent 60%),
+              radial-gradient(circle at 70% 80%, #a200ff44, transparent 60%),
+              radial-gradient(circle at 50% 50%, #00eeff33, transparent 70%);
+  animation: pulseBackground 15s infinite ease-in-out;
+}
+
+@keyframes pulseBackground {
+  0%, 100% {
+    background-position: 30% 20%, 70% 80%, 50% 50%;
+  }
+  50% {
+    background-position: 35% 25%, 65% 75%, 55% 45%;
+  }
+}
+
+.resume-card {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+}
+
+  
+  .resume-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: #222;
+  }
+  
+
+  
+  .resume-viewer {
+    height: 700px;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+  
+  .resume-download {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  
+  .resume-download:hover {
+    background: #0056b3;
+  }
+  

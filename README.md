@@ -1,4 +1,4 @@
-# 📝 SuperLibs! - AI-Generated Mad Libs 🎭
+# 📝 My website + Superlibs 🎭
 
 SuperLibs is a fun interactive web app that generates **Mad Libs stories** using AI! You enter random words (nouns, verbs, adjectives, etc.), and the app creates a hilarious, AI-powered story for you.
 

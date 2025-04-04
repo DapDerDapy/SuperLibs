@@ -94,7 +94,7 @@ const generateStory = async (finalWords) => {
     console.log("📦 Sending:", { genre, wordOrder, words: finalWords });
 
     try {
-        const response = await fetch('http://localhost:5000/generate-madlib', {
+        const response = await fetch('/api/generate-madlib', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ genre, wordOrder, words: finalWords }) 

@@ -150,7 +150,7 @@ const ScriptsAndVideos = () => {
       </h5>
       <div className="video-thumbnail">
         <img
-            src="/public/assets/musicvideo.jpg"
+            src="/assets/musicvideo.JPG"
             alt="Thumbnail"
             onLoad={() => console.log('✅ Image loaded')}
             onError={() => console.log('❌ Image failed to load')}
