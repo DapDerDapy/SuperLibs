@@ -2,16 +2,24 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import fetch from 'node-fetch';
-
+// LATEST VERSION!!!!!!!!
 // Load environment variables
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(cors());
-app.use(express.json());
+const allowedOrigins = process.env.NODE_ENV === 'production'
+    ? ['https://danielphillips.org', 'https://www.danielphillips.org']
+    : ['http://localhost:5173', 'http://localhost:3000'];  // whichever port your local React uses
 
+app.use(cors({
+    origin: allowedOrigins,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+}));
+
+app.use(express.json());
 // OpenAI API Endpoint
 const OPENAI_API_URL = `https://api.openai.com/v1/chat/completions`;
 
@@ -109,6 +117,11 @@ app.post('/api/generate-madlib', async (req, res) => {
         res.status(500).json({ error: error.message || "Internal Server Error" });
     }
 });
+
+app.get('/api/test', (req, res) => {
+    res.json({ success: true, message: 'API works!' });
+});
+
 
 app.listen(port, () => {
     console.log(`🚀 Server running on http://localhost:${port}`);

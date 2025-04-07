@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import './AboutMe.css';
 
 const facts = [
-  "I built this entire website from scratch! 💻",
+  "I built this entire website from scratch, using JavaScript React and hosted in AWS! 💻",
   "I'm a songwriter and Drummer 🥁",
   "I'm an Eagle scout \n🦅",
   "I'm a filmmaker, writer, and editor 🎥",
